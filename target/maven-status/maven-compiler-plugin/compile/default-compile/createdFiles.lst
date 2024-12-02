@@ -1,0 +1,5 @@
+com\example\currencyexchange\CurrencyExchangeApplication.class
+com\example\currencyexchange\model\ExchangeRate.class
+com\example\currencyexchange\service\ExchangeService.class
+com\example\currencyexchange\repository\ExchangeRateRepository.class
+com\example\currencyexchange\controller\ExchangeController.class
