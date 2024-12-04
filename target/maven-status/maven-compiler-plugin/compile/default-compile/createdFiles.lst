@@ -3,3 +3,4 @@ com\example\currencyexchange\model\ExchangeRate.class
 com\example\currencyexchange\service\ExchangeService.class
 com\example\currencyexchange\repository\ExchangeRateRepository.class
 com\example\currencyexchange\controller\ExchangeController.class
+com\example\currencyexchange\request\ExchangeRequest.class

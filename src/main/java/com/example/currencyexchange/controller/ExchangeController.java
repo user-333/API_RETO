@@ -1,5 +1,5 @@
 package com.example.currencyexchange.controller;
-
+import com.example.currencyexchange.request.ExchangeRequest;
 import com.example.currencyexchange.service.ExchangeService;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,17 +16,14 @@ public class ExchangeController {
     }
 
     @PostMapping
-    public Map<String, Object> exchange(
-            @RequestParam String source,
-            @RequestParam String target,
-            @RequestParam Double amount) {
-        Double exchangedAmount = service.applyExchangeRate(source, target, amount);
+    public Map<String, Object> exchange(@RequestBody ExchangeRequest request) {
+        Double exchangedAmount = service.applyExchangeRate(request.getSource(), request.getTarget(), request.getAmount());
         return Map.of(
-                "monto", amount,
+                "monto", request.getAmount(),
                 "montoConTipoDeCambio", exchangedAmount,
-                "monedaOrigen", source,
-                "monedaDestino", target,
-                "tipoDeCambio", exchangedAmount / amount
+                "monedaOrigen", request.getSource(),
+                "monedaDestino", request.getTarget(),
+                "tipoDeCambio", exchangedAmount / request.getAmount()
         );
     }
 }
